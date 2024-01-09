@@ -19,9 +19,9 @@ router.post('/api/getMetadatas', require('../RateLimiter/ratelimitermiddleware')
                     delete result['Directory'];
                     delete result['SourceFile'];
                     delete result['ExifToolVersion'];
-                    for (let cle in objet) {
+                    for (let cle in result) {
                         if (cle.startsWith('File')) {
-                            delete objet[cle];
+                            delete result[cle];
                         }
                     }
                     res.json(result)
