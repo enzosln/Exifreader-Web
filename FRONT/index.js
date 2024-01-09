@@ -5,7 +5,7 @@ fileInput.addEventListener('change', () => {
     data.append('file', fileInput.files[0]);
     console.log(data)
 
-    fetch('https://api.enzo-salson.fr/api/getMetadatas', {
+    fetch('/api/getMetadatas', {
         method: 'POST',
         body: data
     })
