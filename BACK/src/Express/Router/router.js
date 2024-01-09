@@ -26,7 +26,7 @@ router.post('/api/getMetadatas', (req, res) => {
                         }
                     }
 
-                    res.json({...result,Filename : req.file.originalname})
+                    res.json({Filename : req.file.originalname, ...result})
                 } else {
                     console.error(e.message)
                     res.status(500).send({error: 'SERVER_ERROR'});
