@@ -5,7 +5,7 @@ const path = require('path')
 router.get('/', (req, res) => {
     res.sendFile(path.resolve('../FRONT/index.html'))
 })
-app.get('/ip', (request, response) => response.send(request.ip))
+router.get('/ip', (request, response) => response.send(request.ip))
 
 router.post('/api/getMetadatas', require('../RateLimiter/ratelimitermiddleware'), (req, res) => {
     upload(req, res, (err) => {
