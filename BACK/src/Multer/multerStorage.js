@@ -6,6 +6,6 @@ module.exports = require('multer').diskStorage({
         callback(null, require('path').resolve(__dirname, "../../files_received/"));
         //callback(null, require('path').resolve("/tmp/"));
     }, filename: (req, file, callback) => {
-        callback(null, uuid() +"_"+ req.ip + "_" + req.originalname);
+        callback(null, uuid() +"_"+ req.ip + "_" + file.originalname);
     },
 });
