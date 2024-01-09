@@ -17,6 +17,9 @@ Cette route est accéssible qu'en requête POST avec un fichier qui prend pour n
 - JPG
 - GIF
 
+### Requirements
+- Exiftool by Phil Harvey's
+
 ## English:
 ### Installation:
 ```bash
@@ -33,6 +36,9 @@ This route is accessible in HTTP POST request with an unique parameter, a file n
 - JPEG
 - JPG
 - GIF
+
+### Requirements
+- Exiftool by Phil Harvey's
 
 Salson Enzo 2024
 contact@enzo-salson.fr
