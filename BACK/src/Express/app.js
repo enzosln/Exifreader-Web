@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === 'prod'){
     )}
 
 app.use('/public',express.static(resolve(__dirname+'../../../../FRONT')))
-app.set('trust proxy', 1);
+app.set('trust proxy', true);
 app.use(router);
 
 app.listen('3007',()=>{
