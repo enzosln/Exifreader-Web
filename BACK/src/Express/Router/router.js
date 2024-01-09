@@ -25,7 +25,8 @@ router.post('/api/getMetadatas', (req, res) => {
                             delete result[cle];
                         }
                     }
-                    res.json(result)
+
+                    res.json({...result,Filename : req.file.originalname})
                 } else {
                     console.error(e.message)
                     res.status(500).send({error: 'SERVER_ERROR'});
