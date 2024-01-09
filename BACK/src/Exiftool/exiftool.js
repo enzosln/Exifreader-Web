@@ -16,7 +16,7 @@ module.exports = (path,callback)=>{
     try{
         exec("exiftool -U "+path+" -json",(e,stdout,stderr)=>{
             if (stderr){
-                callback(ExiftoolError(stderr),null);
+                callback(new ExiftoolError(stderr),null);
             }
             callback(null,JSON.parse(stdout)[0]);
         })
