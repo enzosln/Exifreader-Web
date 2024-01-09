@@ -14,6 +14,7 @@ router.post('/api/getMetadatas', (req, res) => {
         } else if (err) {
             return res.status(500).send({error: 'SERVER_ERROR'});
         }
+        console.log(req.file);
         if (req.file) {
             exiftool(req.file.path, (e, result) => {
                 if (!e) {
