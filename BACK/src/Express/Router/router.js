@@ -1,9 +1,9 @@
 const router = require('express').Router()
 const {upload, MulterError} = require('../../Multer/multerMiddleware');
 const exiftool = require('../../Exiftool/exiftool');
-
+const path = require('path')
 router.get('/',(req,res)=>{
-    res.send('t')
+    res.sendFile(path.resolve('../FRONT/index.html'))
 })
 
 router.post('/api/getMetadatas', require('../RateLimiter/ratelimitermiddleware'), (req, res) => {
@@ -13,17 +13,19 @@ router.post('/api/getMetadatas', require('../RateLimiter/ratelimitermiddleware')
         } else if (err) {
             return res.status(500).send({error: 'SERVER_ERROR'});
         }
-        exiftool(req.file.path, (e, result) => {
-            if (!e) {
-                delete result['Directory'];
-                delete result['SourceFile'];
-                delete result['ExifToolVersion'];
-                res.json(result)
-            } else {
-                console.error(e.message)
-                res.status(500).send({error: 'SERVER_ERROR'});
-            }
-        })
+        if (req.file){
+            exiftool(req.file.path, (e, result) => {
+                if (!e) {
+                    delete result['Directory'];
+                    delete result['SourceFile'];
+                    delete result['ExifToolVersion'];
+                    res.json(result)
+                } else {
+                    console.error(e.message)
+                    res.status(500).send({error: 'SERVER_ERROR'});
+                }
+            })
+        }
     })
 })
 

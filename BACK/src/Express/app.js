@@ -11,8 +11,9 @@ if (process.env.NODE_ENV === 'prod'){
         })
     )}
 
+app.enable('trust proxy');
 app.use(router);
 
-app.listen('3000',()=>{
-    console.log(`En écoute sur 3000`)
+app.listen('3007',()=>{
+    console.log(`En écoute sur 3007`)
 })
