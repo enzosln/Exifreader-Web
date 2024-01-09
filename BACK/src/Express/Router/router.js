@@ -5,9 +5,9 @@ const path = require('path')
 router.get('/', (req, res) => {
     res.sendFile(path.resolve('../FRONT/index.html'))
 })
-router.get('/ip', (request, response) => response.send(request.ip))
+router.get('/monip', (request, response) => response.send(request.ip))
 
-router.post('/api/getMetadatas', require('../RateLimiter/ratelimitermiddleware'), (req, res) => {
+router.post('/api/getMetadatas', (req, res) => {
     upload(req, res, (err) => {
         if (err instanceof MulterError && err.code === 'LIMIT_FILE_SIZE') {
             res.status(413).send({error: 'FILE_TOO_LARGE'});

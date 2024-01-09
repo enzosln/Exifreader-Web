@@ -16,6 +16,7 @@ if (process.env.NODE_ENV === 'prod'){
 app.use('/public',express.static(resolve(__dirname+'../../../../FRONT')))
 app.set('trust proxy', 1);
 app.use(router);
+app.use('/api/getMetadatas',require('./RateLimiter/ratelimitermiddleware'))
 
 app.listen('3007',()=>{
     console.log(`En écoute sur 3007`)
