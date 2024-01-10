@@ -1,4 +1,5 @@
 <h1 align='center'>Exifreader-Web</h1>
+![ExifImage](Exif.png)
 
 ## French :
 ### Installation:
