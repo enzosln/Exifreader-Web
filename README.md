@@ -1,5 +1,5 @@
 <h1 align='center'>Exifreader-Web</h1>
-![ExifImage](Exif.png)
+![image](https://github.com/enzosln/Exifreader-Web/assets/146827993/faae5f73-2552-486a-bb06-db20cbe50e12)
 
 ## French :
 ### Installation:
