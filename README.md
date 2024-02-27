@@ -15,7 +15,7 @@ cd Exifreader-Web
 docker build -t exifreader .
 docker run -p 80:3000 exifreader
 ```
-L'api est maintenant disponible à l'adresse http://localhost:3000/api/getMetadatas.
+L'api est maintenant disponible à l'adresse http://localhost/api/getMetadatas.
 Cette route est accéssible qu'en requête POST avec un fichier qui prend pour nom 'file'.
 
 ### Acceptation:
@@ -25,7 +25,7 @@ Cette route est accéssible qu'en requête POST avec un fichier qui prend pour n
 - GIF
 
 ### Requirements
-- Exiftool by Phil Harvey's
+- Exiftool by Phil Harvey's (sudo apt install exiftool -y) (brew install exiftool) Si vous n'utilisez pas Docker.
 
 ## English:
 ### Installation:
@@ -42,7 +42,7 @@ cd Exifreader-Web
 docker build -t exifreader .
 docker run -p 80:3000 exifreader
 ```
-The API is available at http://localhost:3000/api/getMetadatas.
+The API is available at http://localhost/api/getMetadatas.
 This route is accessible in HTTP POST request with an unique parameter, a file named 'file'.
 
 ### Acceptation:
@@ -52,6 +52,6 @@ This route is accessible in HTTP POST request with an unique parameter, a file n
 - GIF
 
 ### Requirements
-- Exiftool by Phil Harvey's
+- Exiftool by Phil Harvey's (sudo apt install exiftool -y) (brew install exiftool) If you don't uses Docker.
 
 Salson Enzo 2024
