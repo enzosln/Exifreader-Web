@@ -1,14 +1,18 @@
-FROM debian:bookworm
+FROM node:alpine
 
-RUN apt update && apt upgrade -y && \
-    apt install -y nodejs exiftool npm && \
-    mkdir /node
+RUN apk update && \
+    apk add --no-cache exiftool && \
+    mkdir /app
 
-COPY BACK /node/BACK/
-COPY FRONT /node/FRONT/
+WORKDIR /app
 
-RUN cd /node/BACK && npm install
+COPY BACK /app/BACK/
+COPY FRONT /app/FRONT/
 
-EXPOSE 3007
+RUN cd /app/BACK && npm install && \
+    rm -rf /root/.npm /tmp/*
 
-CMD cd /node/BACK && node index.js
+EXPOSE 3000
+
+CMD ["node", "/app/BACK/index.js"]
+

@@ -1,18 +1,18 @@
 const router = require('express').Router()
 const {upload, MulterError} = require('../../Multer/multerMiddleware');
 const exiftool = require('../../Exiftool/exiftool');
-const path = require('path')
+const {resolve} = require('path')
 router.get('/', (req, res) => {
-    res.sendFile(path.resolve('../FRONT/index.html'))
+    res.sendFile(resolve(__dirname + "../../../../../FRONT/index.html"))
 })
 router.get('/monip', (request, response) => response.send(request.ip))
 
 router.post('/api/getMetadatas', (req, res) => {
     upload(req, res, (err) => {
         if (err instanceof MulterError && err.code === 'LIMIT_FILE_SIZE') {
-            res.status(413).send({error: 'FILE_TOO_LARGE'});
+            res.status(413).json({error: 'FILE_TOO_LARGE'});
         } else if (err) {
-            return res.status(500).send({error: 'SERVER_ERROR'});
+            return res.status(500).json({error: 'SERVER_ERROR'});
         }
         console.log(req.file);
         if (req.file) {
@@ -26,11 +26,10 @@ router.post('/api/getMetadatas', (req, res) => {
                             delete result[cle];
                         }
                     }
-
-                    res.json({Filename : req.file.originalname, ...result})
+                    res.json({Filename: req.file.originalname, ...result})
                 } else {
                     console.error(e.message)
-                    res.status(500).send({error: 'SERVER_ERROR'});
+                    res.status(500).json({error: 'SERVER_ERROR'});
                 }
             })
         }
