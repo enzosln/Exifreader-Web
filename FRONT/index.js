@@ -1,10 +1,8 @@
 const fileInput = document.querySelector('input');
 const tableData = document.querySelector('tbody');
 fileInput.addEventListener('change', () => {
-    const file = fileInput.files[0];
     const data = new FormData();
     data.append('file', fileInput.files[0]);
-    console.log(data)
 
     fetch('/api/getMetadatas', {
         method: 'POST',
