@@ -14,7 +14,7 @@ module.exports = (path,callback)=>{
         callback(new FileNotExists(path),null);
     }
     try{
-        exec("LC_ALL=C exiftool -U "+path+" -json",(e,stdout,stderr)=>{
+        exec("LC_ALL=C exiftool -U '"+path+"' -json",(e,stdout,stderr)=>{
             if (stderr){
                 callback(new ExiftoolError(stderr),null);
             }
